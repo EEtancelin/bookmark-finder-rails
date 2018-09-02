@@ -1,0 +1,29 @@
+#! /usr/bin/env ruby
+
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
+
+extract = {}
+
+# Fetch and parse HTML documentruby
+doc = Nokogiri::HTML(File.open("import.html"))
+
+def nokogiri_to_hash(element)
+    result = {}
+    puts element.attributes
+    binding.pry
+    if element
+        element.attributes.each do |k,v|
+            binding.pry
+            result[k] = v.val
+        end
+        result["children"]
+    end 
+    result
+end
+
+result = []
+    result << nokogiri_to_hash(v)
+end
+puts result
